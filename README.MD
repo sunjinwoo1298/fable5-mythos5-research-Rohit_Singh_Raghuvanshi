@@ -1714,6 +1714,12 @@ Claude Fable 5 and Claude Mythos 5 share the same underlying Mythos-class founda
 
 For most organizations, access is not primarily a technical question. It is a governance, compliance, and procurement question.
 
+## June 2026: Access Restrictions Update
+
+As of June 13, 2026, Reuters reported that a U.S. export-control directive required Anthropic to suspend Fable 5 and Mythos 5 access for foreign nationals pending resolution. That means launch-era availability statements should be read as historical, and current access must be treated as jurisdiction-dependent rather than universally available.
+
+This update is important because it changes how the platform availability and access-model sections below should be interpreted.
+
 ---
 
 # Platform Availability
@@ -1811,7 +1817,6 @@ Fable 5 launched for broad deployment (June 9, 2026); as of June 13, 2026, acces
 | Enterprise Contracts | Yes, subject to compliance review and June 13, 2026 export restrictions |
 | Cloud Providers | Available at launch; as of June 13, 2026, subject to legal/export controls |
 | Subscription Access | June 9–22: Included in plans; as of June 13, 2026: policy-dependent |
-
 | Project Glasswing Required | No |
 
 ---

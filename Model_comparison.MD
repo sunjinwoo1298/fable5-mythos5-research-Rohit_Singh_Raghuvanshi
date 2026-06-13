@@ -29,6 +29,10 @@ For most organizations:
 * Fable 5 = best available capability
 * Mythos 5 = restricted-access frontier capability
 
+## June 2026: Access Restrictions Update
+
+As of June 13, 2026, Reuters reported that a U.S. export-control directive required Anthropic to suspend Fable 5 and Mythos 5 access for foreign nationals pending resolution. Treat launch-era availability as historical and current access as jurisdiction-dependent.
+
 ---
 
 # Model Positioning
@@ -91,9 +95,11 @@ Sources: Anthropic pricing and model documentation, June 2026.
 | Sonnet 4.6 | $3                         | $15                         |
 | Opus 4.8   | $5                         | $25                         |
 | Fable 5    | $10                        | $50                         |
-| Mythos 5   | Not Publicly Available     |                             |
+| Mythos 5   | Not Publicly Available     | See note below             |
 
 Sources: Anthropic pricing documentation and launch materials.
+
+Note: Anthropic publicly listed Mythos Preview participant pricing at $25 per million input tokens and $125 per million output tokens after usage credits. That pricing context is for Mythos Preview, not Mythos 5, but it is the closest public benchmark for expected Glasswing-style access pricing.
 
 ---
 
