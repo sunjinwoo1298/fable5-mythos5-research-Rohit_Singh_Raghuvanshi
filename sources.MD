@@ -207,7 +207,7 @@ Used for:
 
 ## Official Benchmark Documentation
 
-When benchmark numbers are referenced, they should be traced back to the benchmark owners whenever possible.
+When benchmark numbers are referenced, they should be traced back to benchmark owners and clearly tagged with the exact model/version and evaluation setup.
 
 Examples:
 
@@ -219,9 +219,19 @@ https://www.swebench.com/
 
 Official benchmark repository/documentation
 
-### FrontierCode
+### GPQA Diamond
 
-Official benchmark publication
+Official benchmark owner publication
+
+### Humanity's Last Exam
+
+Official benchmark owner publication
+
+### OSWorld-Verified
+
+Official benchmark owner publication
+
+**Note:** FrontierCode/FrontierBench references are excluded unless a public benchmark owner source with reproducible methodology is available.
 
 ---
 

@@ -22,11 +22,17 @@
 
 ### Coding Benchmarks and Comparative Evaluations
 
-Anthropic's launch materials and third-party leaderboards indicate that Fable 5 is a top performer on modern software-engineering evaluations (for example, FrontierCode and FrontierBench) and shows strong results on SWE-bench style leaderboards. Anthropic specifically highlights FrontierCode and FrontierBench among the evaluations where Fable 5 excels. Public benchmark leaderboards should be consulted for the most recent numeric scores and exact dates, since leaderboards and reported metrics change over time.
+Anthropic's publicly documented benchmark reporting for Mythos Preview includes SWE-bench Pro (77.8%), Terminal-Bench 2.0 (82.0%), SWE-bench Verified (93.9%), GPQA Diamond (94.6%), and Humanity's Last Exam (56.8% without tools). As of June 13, 2026, these are the concrete benchmark numbers published on Anthropic's Glasswing page.
 
-OpenAI and public terminal-centric evaluations indicate GPT-5.5 remains highly competitive for interactive, terminal-oriented developer workflows. The practical recommendation is to validate both models on your own interactive and repository-level workloads to determine which best fits your engineering pipeline.
+Because these benchmark results are reported for Mythos Preview, they should not automatically be treated as direct one-to-one performance claims for every deployment configuration. The most defensible approach is to cite these published results and clearly label which model/version each score belongs to.
+
+OpenAI and public terminal-centric evaluations indicate GPT-5.5 remains highly competitive for interactive, terminal-oriented developer workflows. The practical recommendation is to validate both models on your own interactive and repository-level workloads.
 
 ---
+
+## Model Family Comparison
+
+| Model Tier | Primary Purpose | Typical Users | Relative Capability |
 |------------|----------------|--------------|--------------------|
 | Haiku | Fast, efficient inference | Consumer applications | Entry |
 | Sonnet | Balanced capability and cost | Businesses and developers | Intermediate |
@@ -183,15 +189,15 @@ Project Glasswing is one of the most important concepts associated with Mythos-c
 
 ## What Is Project Glasswing?
 
-Project Glasswing is Anthropic's controlled deployment program for advanced frontier AI systems.
+Project Glasswing is Anthropic's cybersecurity defense initiative focused on securing critical software in the AI era.
+
+Anthropic describes it as an urgent effort to put advanced model capabilities to work for defensive cyber purposes, especially vulnerability discovery and remediation in high-impact software systems.
 
 The initiative was created to address a difficult problem.
 
-Anthropic believed Mythos-class models were valuable enough to deploy but potentially risky enough that unrestricted public release would be irresponsible.
+Anthropic believed frontier cyber capability was advancing quickly enough that defenders needed coordinated access, safeguards, and collaboration.
 
-Project Glasswing serves as a middle path between these extremes.
-
-Instead of releasing Mythos-class systems broadly or keeping them entirely private, Anthropic provided access to selected organizations operating under specific safeguards and oversight structures.
+As publicly described, Glasswing is primarily a defender-focused cybersecurity program, not a generic all-purpose deployment framework for all frontier workloads.
 
 ## Why the Name Matters
 
@@ -390,8 +396,8 @@ The development of Mythos-class systems occurred through a carefully staged proc
 timeline
     title Mythos-Class Development Timeline
 
-    April 2026 : Mythos Preview begins
-               : Initial Glasswing participants onboarded
+    April 7 2026 : Mythos Preview announced
+                 : Initial Glasswing participants onboarded
 
     May 2026 : Glasswing operational expansion
              : Capability and risk evaluations continue
@@ -407,7 +413,7 @@ timeline
                 : Mythos-class formally introduced
 ```
 
-## April 2026: Mythos Preview
+## April 7, 2026: Mythos Preview
 
 The first visible stage of Mythos-class deployment involved Mythos Preview.
 
@@ -514,7 +520,7 @@ The answer involves safety classifiers, fallback routing, Project Glasswing acce
 
 ## Understanding the Core Relationship
 
-Anthropic repeatedly describes Fable 5 and Mythos 5 as two configurations of the same Mythos-class foundation model. Fable 5 is the publicly accessible configuration, while Mythos 5 is the restricted configuration available only to approved organizations through Project Glasswing. citeturn0search0turn0news16
+Anthropic repeatedly describes Fable 5 and Mythos 5 as two configurations of the same Mythos-class foundation model. At launch, Fable 5 was described as the publicly accessible configuration, while Mythos 5 was the restricted configuration available only to approved organizations through Project Glasswing. As of June 13, 2026, reported U.S. export-control actions introduced additional foreign-national access restrictions that materially changed availability status. citeturn0search0turn0news16
 
 ```mermaid
 graph LR
@@ -553,8 +559,8 @@ When conversations enter these areas, Fable 5 may defer to Claude Opus 4.8 inste
 | Model Class | Mythos-Class | Mythos-Class |
 | Underlying Weights | Same | Same |
 | Architecture | Same | Same |
-| Public Availability | Yes | No |
-| Access Method | API, Bedrock, Vertex AI, Foundry | Project Glasswing |
+| Public Availability | June 9 launch: Yes; June 13, 2026: Restricted by export-control directive | No (restricted program) |
+| Access Method | Claude API / Bedrock / Vertex AI / Foundry (subject to June 13, 2026 export restrictions) | Project Glasswing |
 | API Model ID | claude-fable-5 | Restricted |
 | Context Window | Same | Same |
 | Max Output Tokens | Same | Same |
@@ -572,7 +578,7 @@ When conversations enter these areas, Fable 5 may defer to Claude Opus 4.8 inste
 | Data Retention | Mandatory 30 Days | Mandatory 30 Days |
 | Zero Retention Available | No | No |
 | Covered Model Classification | Yes | Yes |
-| Pricing | Same | Same |
+| Pricing | As of June 9, 2026: $10/$50 per million tokens; subject to availability restrictions | Glasswing participant pricing (as of April 7, 2026): $25/$125 after credits expire |
 | Deployment Audience | General Customers | Approved Organizations |
 
 Source: Anthropic documentation and launch materials. citeturn0search0turn0news16
@@ -604,7 +610,7 @@ D --> E[Claude Opus 4.8]
 
 ## The Three Primary Classifier Domains
 
-Anthropic currently describes three major safeguard areas.
+As of June 13, 2026, Anthropic describes three major safeguard areas in deployment:
 
 ### Cybersecurity
 
@@ -639,9 +645,9 @@ Anthropic reports that these safeguards trigger in fewer than 5% of sessions on 
 
 ## Understanding the API Response
 
-Anthropic's refusal mechanism is intentionally different from a traditional API error.
+Based on Anthropic documentation (as of June 13, 2026), refusal behavior is described as distinct from a transport/API failure.
 
-Example:
+Illustrative example (schema may change across API versions):
 
 ```json
 {
@@ -725,13 +731,13 @@ Empty because Fable 5 intentionally produced no output.
 
 ---
 
-# Why Refusals Return HTTP 200 Instead of 4xx
+# Why Refusals May Return HTTP 200 Instead of 4xx
 
 This design choice often surprises developers.
 
 ## The Key Principle
 
-Anthropic treats refusal as a successful model outcome rather than an API error.
+As documented by Anthropic (as of June 13, 2026), refusal is generally treated as an application-level model outcome rather than a transport-level API error.
 
 A 4xx status means:
 
@@ -751,7 +757,7 @@ Instead:
 
 From Anthropic's perspective, the API completed successfully.
 
-Therefore:
+Therefore (illustrative pattern):
 
 ```text
 HTTP 200 = Request Processed Successfully
@@ -1714,7 +1720,7 @@ For most organizations, access is not primarily a technical question. It is a go
 
 ## Where Fable 5 Is Available
 
-Anthropic launched Fable 5 through multiple commercial channels to maximize accessibility.
+Fable 5 launched June 9, 2026, through multiple commercial channels (Claude API, Bedrock, Vertex AI, Foundry). However, on June 13, 2026, Reuters reported a U.S. export-control directive requiring Anthropic to disable Fable 5 and Mythos 5 access for foreign nationals pending resolution.
 
 ```mermaid
 flowchart LR
@@ -1730,11 +1736,11 @@ A --> F[Microsoft Foundry]
 
 ### Claude API
 
-The Claude API is the most direct route for developers. It provides access to Fable 5 through Anthropic's platform and supports production integrations, agents, and custom applications.
+At launch (June 9, 2026), the Claude API was the most direct route. As of June 13, 2026, access is restricted and must be considered policy- and jurisdiction-dependent due to export-control directives.
 
 ### Amazon Bedrock
 
-Amazon Bedrock provides managed access for organizations already operating in AWS environments.
+Amazon Bedrock previously provided managed access; as of June 13, 2026, availability is affected by export-control restrictions.
 
 Advantages:
 
@@ -1745,11 +1751,11 @@ Advantages:
 
 ### Google Vertex AI
 
-Organizations standardized on Google Cloud can access Fable 5 through Vertex AI while maintaining centralized AI governance.
+Organizations standardized on Google Cloud may deploy through Vertex AI, subject to applicable legal/policy controls and availability status as of June 13, 2026.
 
 ### Microsoft Foundry
 
-Microsoft Foundry provides another enterprise deployment pathway for organizations already invested in Microsoft's AI ecosystem.
+Microsoft Foundry remains an enterprise deployment pathway in principle, subject to the same export-control and compliance constraints as of June 13, 2026.
 
 ---
 
@@ -1797,14 +1803,15 @@ Access is therefore governed rather than purchased directly.
 
 ## Fable 5 Access Model
 
-Fable 5 is intended for broad deployment.
+Fable 5 launched for broad deployment (June 9, 2026); as of June 13, 2026, access status is conditional and restricted.
 
 | Feature | Availability |
 |----------|-------------|
-| Public API Access | Yes |
-| Enterprise Contracts | Yes |
-| Cloud Providers | Yes |
-| Subscription Access | Yes |
+| Public API Access | June 9–13: Available; As of June 13, 2026: Conditional/restricted |
+| Enterprise Contracts | Yes, subject to compliance review and June 13, 2026 export restrictions |
+| Cloud Providers | Available at launch; as of June 13, 2026, subject to legal/export controls |
+| Subscription Access | June 9–22: Included in plans; as of June 13, 2026: policy-dependent |
+
 | Project Glasswing Required | No |
 
 ---
@@ -1827,14 +1834,14 @@ Mythos 5 follows a restricted-access model.
 
 ## Published Pricing
 
-Anthropic announced:
+Publicly documented pricing should be separated by product and phase:
 
-| Model | Input Price | Output Price |
+| Product/Phase | Input Price | Output Price |
 |---------|------------|-------------|
-| Fable 5 | $10 / Million Tokens | $50 / Million Tokens |
-| Mythos 5 | Same Pricing Structure | Same Pricing Structure |
+| Fable 5 public API launch pricing | $10 / Million Tokens | $50 / Million Tokens |
+| Mythos Preview participant pricing after usage credits | $25 / Million Tokens | $125 / Million Tokens |
 
-Anthropic also stated that this pricing was less than half the cost of Mythos Preview.
+Do not assume Mythos 5 generally available pricing is identical to Fable 5 unless Anthropic publishes explicit confirmation for that exact product/phase.
 
 ---
 
@@ -2080,7 +2087,7 @@ D --> E[Mythos 5]
 
 Key conclusions:
 
-1. Fable 5 is broadly available across major AI platforms.
+1. Fable 5 launched June 9, 2026 across major AI platforms; as of June 13, 2026, availability is subject to export-control and policy restrictions.
 2. Mythos 5 is restricted to approved organizations.
 3. Both models share the same Mythos-class foundation.
 4. Pricing is based on token consumption.
@@ -2159,9 +2166,9 @@ B --> E[Research + Ecosystem]
 C --> F[Coding + Knowledge Work + Reliability]
 ```
 
-Each model family currently dominates different categories.
+As of June 13, 2026, each model family dominates different categories based on published benchmarks.
 
-| Area | Current Leader |
+| Area | Leader (as of June 13, 2026) |
 |--------|--------------|
 | Autonomous Software Engineering | Fable 5 |
 | Enterprise Knowledge Work | Fable 5 |
@@ -2185,7 +2192,7 @@ GPT-5.5 is OpenAI's flagship reasoning and productivity model released in April 
 
 Fable 5, however, targets a somewhat different objective.
 
-Anthropic positions Fable 5 as the strongest publicly available model for:
+Anthropic positions Fable 5 as a leading Mythos-class model for:
 
 - Software engineering
 - Agentic coding
@@ -2199,9 +2206,9 @@ Anthropic positions Fable 5 as the strongest publicly available model for:
 
 ## Coding Performance
 
-This is currently Fable 5's strongest area.
+Based on published benchmarks as of June 13, 2026, this is Fable 5's strongest documented area.
 
-Anthropic's launch materials and public leaderboards indicate that Fable 5 is a top performer on modern software-engineering evaluations (for example, FrontierCode and FrontierBench) and shows strong results on SWE-bench style leaderboards. Anthropic specifically highlights FrontierCode and FrontierBench among the evaluations where Fable 5 excels. Public benchmark leaderboards should be consulted for the most recent numeric scores and exact dates, since leaderboards and reported metrics change over time.
+Anthropic's publicly documented benchmark reporting for Mythos Preview includes SWE-bench Pro (77.8%), Terminal-Bench 2.0 (82.0%), SWE-bench Verified (93.9%), GPQA Diamond (94.6%), and Humanity's Last Exam (56.8% without tools). These are concrete published figures; benchmark claims should name the exact model/version and evaluation setup.
 
 OpenAI and public terminal-centric evaluations indicate GPT-5.5 remains highly competitive for interactive, terminal-oriented developer workflows. The practical recommendation is to validate both models on your own interactive and repository-level workloads to determine which best fits your engineering pipeline.
 
@@ -2248,9 +2255,9 @@ OpenAI also describes GPT-5.5 as functioning more like a research collaborator t
 
 Anthropic positions Mythos-class systems similarly, particularly in scientific reasoning and cybersecurity research. However, publicly available benchmark evidence remains stronger for coding than for direct scientific benchmark comparisons.
 
-### Current Assessment
+### Assessment (as of June 13, 2026)
 
-Based on documented evidence:
+Based on published benchmark documentation:
 
 | Domain | Advantage |
 |----------|-----------|
@@ -2279,7 +2286,7 @@ Google has consistently focused on making Gemini a universal assistant rather th
 
 ## Software Engineering
 
-The current public benchmark record strongly favors Fable 5 for autonomous software engineering.
+Public benchmark data as of June 13, 2026 favors Fable 5 for autonomous software engineering.
 
 Anthropic's published and third-party benchmark results place Fable 5 at the top of major coding leaderboards. citeturn0search5turn0search9
 
@@ -2419,11 +2426,11 @@ This makes Anthropic's architecture particularly attractive in regulated environ
 
 # Honest Verdict
 
-Fable 5 is currently the strongest choice for many of Tekravio's most important workloads. The documented benchmark evidence consistently places it ahead of GPT-5.5 on software engineering tasks, repository-level coding, autonomous patch generation, and several enterprise knowledge-work evaluations. For organizations building coding agents, technical copilots, internal engineering assistants, document-analysis systems, and research workflows, Fable 5 offers a compelling combination of capability and reliability. Its classifier-and-fallback architecture also provides a level of deployment transparency that many enterprises will find attractive.
+As of June 13, 2026, Fable 5 represents a strong choice for Tekravio's engineering workloads, subject to availability restrictions. Documented benchmark evidence (as of the June 9, 2026 launch) places it ahead of GPT-5.5 on software engineering tasks, repository-level coding, autonomous patch generation, and enterprise knowledge-work evaluations. For organizations building coding agents, technical copilots, internal engineering assistants, document-analysis systems, and research workflows, Fable 5 offers a compelling combination of capability and reliability. Its classifier-and-fallback architecture also provides a level of deployment transparency that many enterprises will find attractive.
 
 However, Fable 5 is not the universal winner. GPT-5.5 remains highly competitive in scientific research workflows, terminal-centric development environments, and multimodal experiences involving audio and video. Gemini continues to be a strong option for organizations deeply invested in the Google ecosystem and for cost-sensitive deployments requiring large-scale multimodal productivity.
 
-If Tekravio's primary objective is software engineering excellence, Fable 5 is currently the safest default recommendation based on publicly documented benchmarks. If the objective is broad multimodal interaction or ecosystem integration, GPT-5.5 and Gemini may be better choices depending on the environment.
+If Tekravio's primary objective is software engineering excellence, Fable 5 is the recommended choice based on publicly documented benchmarks (as of June 13, 2026); however, availability restrictions and access policies must be confirmed with Anthropic. If the objective is broad multimodal interaction or ecosystem integration, GPT-5.5 and Gemini may be better choices depending on the environment.
 
 For Fable 5 to become the obvious default everywhere, Anthropic would need to match or exceed competitors in multimodal breadth, reduce data-retention constraints, lower costs, and continue demonstrating benchmark leadership across scientific and enterprise workloads—not just coding and knowledge work.
 
