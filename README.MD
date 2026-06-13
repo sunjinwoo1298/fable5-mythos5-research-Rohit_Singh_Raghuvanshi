@@ -237,7 +237,7 @@ This evidence-driven approach distinguishes Project Glasswing from traditional p
 
 # Mythos Preview and the Road to Mythos 5
 
-Before Mythos 5 existed, Anthropic introduced a system known as Mythos Preview.
+Before Mythos 5 existed, Anthropic introduced a system known as Mythos Preview in April 2026.
 
 ## What Was Mythos Preview?
 
@@ -647,7 +647,7 @@ Anthropic reports that these safeguards trigger in fewer than 5% of sessions on 
 
 Based on Anthropic documentation (as of June 13, 2026), refusal behavior is described as distinct from a transport/API failure.
 
-Illustrative example (schema may change across API versions):
+Illustrative example of response shape, not a guaranteed stable API schema:
 
 ```json
 {
@@ -920,9 +920,9 @@ Fallback should be observable but not disruptive.
 
 ## What Is Adaptive Thinking?
 
-Anthropic introduced Adaptive Thinking as the only reasoning mode available on Mythos-class systems. citeturn0search0
+Anthropic introduced Adaptive Thinking as the reasoning mode described for Mythos-class systems in its launch materials. citeturn0search0
 
-Unlike earlier models, thinking cannot be disabled.
+The examples below reflect the launch-era API wording and should be verified against the live Claude API documentation before being treated as a stable schema.
 
 ```json
 {
@@ -932,7 +932,7 @@ Unlike earlier models, thinking cannot be disabled.
 }
 ```
 
-is not supported.
+is shown here only as a launch-era example and may not reflect the current documented API schema.
 
 Instead, the model dynamically determines how much reasoning effort to allocate.
 
@@ -956,11 +956,9 @@ The model decides execution strategy.
 
 ### Summarized
 
-```json
-"thinking.display": "summarized"
-```
+Launch materials describe a summarized-thinking mode.
 
-Returns a readable summary of reasoning.
+The exact live API parameter name should be checked against the current Claude documentation.
 
 Useful for:
 
@@ -970,11 +968,9 @@ Useful for:
 
 ### Omitted
 
-```json
-"thinking.display": "omitted"
-```
+Launch materials describe an omitted-thinking mode.
 
-Returns empty thinking blocks.
+The exact live API parameter name should be checked against the current Claude documentation.
 
 Useful for:
 
